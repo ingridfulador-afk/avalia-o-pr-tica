@@ -1,647 +1,361 @@
 
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vozes do Afeganistão | A Luta das Mulheres por Direitos e Liberdade</title>
-    <meta name="description" content="Página de conscientização sobre a perda de direitos, o preconceito e a resistência das mulheres no Afeganistão sob o regime Talibã.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Vozes Silenciadas: A Luta das Mulheres no Afeganistão</title>
+    <style>
+        /* ==================== CSS / ESTILOS ==================== */
+        :root {
+            /* Tema Claro (Padrão) */
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --text-secondary: #6c757d;
+            --primary-color: #d90429;
+            --primary-hover: #ef233c;
+            --border-color: #e9ecef;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] {
+            /* Tema Escuro */
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #f8f9fa;
+            --text-secondary: #a0a0a0;
+            --primary-color: #ef233c;
+            --primary-hover: #d90429;
+            --border-color: #333333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        /* NAVEGAÇÃO E HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+            transition: transform 0.1s ease, background-color 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-color);
+        }
+
+        .btn-like.liked {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* CONTEÚDO PRINCIPAL */
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        .highlight-quote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+            font-style: italic;
+            margin: 20px 0;
+            color: var(--text-secondary);
+        }
+
+        /* GALERIA DE FOTOS */
+        .image-container {
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 8px;
+            background-color: var(--bg-color);
+        }
+
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .grid-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* RODAPÉ */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            margin-top: 50px;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .hero-content p { font-size: 1rem; }
+            .nav-container { flex-direction: column; gap: 10px; }
+            .section { padding: 20px; }
+        }
+    </style>
 </head>
 <body>
 
-    <header class="header">
-        <div class="container header-container">
-            <a href="#" class="logo">Vozes do Afeganistão</a>
-            
-            <nav class="nav" aria-label="Navegação Principal">
-                <ul class="nav-list">
-                    <li><a href="#contexto">Contexto Histórico</a></li>
-                    <li><a href="#restricoes">Restrições Atuais</a></li>
-                    <li><a href="#resistencia">Resistência</a></li>
-                    <li><a href="#como-ajudar">Como Ajudar</a></li>
-                </ul>
-            </nav>
-
-            <button id="theme-toggle" class="btn-icon" type="button" aria-label="Alternar modo claro e escuro">
-                <span class="icon-sun">☀️</span>
-                <span class="icon-moon">🌙</span>
-            </button>
+    <!-- NAVEGAÇÃO -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Direitos Humanos</div>
+            <div class="controls">
+                <!-- Botão Curtir -->
+                <button class="btn btn-like" id="likeBtn">
+                    <span id="heartIcon">❤️</span> 
+                    <span id="likeText">Curtir</span> 
+                    (<span id="likeCount">124</span>)
+                </button>
+                <!-- Botão Alternar Tema -->
+                <button class="btn" id="themeBtn">
+                    <span id="themeIcon">🌙</span> <span id="themeText">Modo Escuro</span>
+                </button>
+            </div>
         </div>
     </header>
 
+    <!-- HERO / BANNER -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>A Restrição dos Direitos das Mulheres no Afeganistão</h1>
+            <p>Uma análise sobre a perda de liberdades fundamentais, a crise educacional e a resistência feminina no país.</p>
+        </div>
+    </div>
+
+    <!-- CONTEÚDO -->
     <main>
-        <section class="hero">
-            <div class="container hero-content">
-                <span class="tag">Direitos Humanos & Direitos das Mulheres</span>
-                <h1>A Realidade e os Desafios das Mulheres no Afeganistão</h1>
-                <p>O apagamento sistemático dos direitos femininos, o preconceito institucionalizado e a coragem inabalável das mulheres afegãs diante do silenciamento.</p>
-                <div class="hero-actions">
-                    <button type="button" class="btn btn-primary" onclick="document.getElementById('restricoes').scrollIntoView({ behavior: 'smooth' })">Entenda o Cenário</button>
-                    <button type="button" class="btn btn-outline" onclick="document.getElementById('como-ajudar').scrollIntoView({ behavior: 'smooth' })">Apoie a Causa</button>
-                </div>
+        <!-- SEÇÃO 1 -->
+        <article class="section">
+            <h2>O Cenário Atual e o Retrocesso Histórico</h2>
+            <p>Desde a retomada do poder pelo Taleban em agosto de 2021, o Afeganistão tornou-se o único país do mundo onde meninas e mulheres são formalmente proibidas de frequentar o ensino secundário e superior. O que parecia uma promessa inicial de moderar o regime rapidamente se transformou em uma série de decretos altamente restritivos.</p>
+            
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=1000&q=80" alt="Mulheres caminhando no Afeganistão">
+                <div class="image-caption">As restrições impostas afetam a liberdade de circulação, trabalho e vestimenta no cotidiano afegão.</div>
             </div>
-        </section>
 
-        <section id="contexto" class="section fade-in">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Contexto Histórico</h2>
-                    <p>Entre conquistas do passado e o retrocesso contemporâneo.</p>
-                </div>
-                
-                <div class="grid grid-2">
-                    <div class="content-text">
-                        <p>A história dos direitos das mulheres no Afeganistão não é linear. Durante a metade do século XX, especialmente nas décadas de 1960 e 1970, o país viveu avanços significativos. A Constituição de 1964 garantiu às mulheres o direito ao voto, à educação superior e à participação na vida política e social em centros urbanos como Cabul.</p>
-                        <p>No entanto, décadas de conflitos armados, invasões estrangeiras e a ascensão de facções extremistas mudaram tragicamente esse panorama. A tomada do poder pelo Talibã nos anos 1990 e o seu retorno em agosto de 2021 desmantelaram décadas de progresso social, empurrando milhões de meninas e mulheres para a invisibilidade forçada.</p>
-                    </div>
-                    <div class="media-container">
-                        <div class="image-card">
-                            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="Vista das montanhas e arquitetura tradicional de Cabul, simbolizando o país e sua história rica e complexa." loading="lazy">
-                            <span class="caption">Afeganistão: Um país de história rica, marcado por profundas transformações sociais.</span>
-                        </div>
-                    </div>
-                </div>
+            <p>A vida pública das mulheres foi praticamente apagada. Decretos sucessivos baniram a presença feminina em parques, academias, feiras, banhos públicos e salões de beleza — este último um dos poucos espaços de sociabilidade e sustento financeiro exclusivamente feminino que restavam no país.</p>
+        </article>
+
+        <!-- SEÇÃO 2 -->
+        <article class="section">
+            <h2>Proibição da Educação e do Trabalho</h2>
+            <p>A educação é a base para o desenvolvimento de qualquer sociedade. No entanto, mais de 1,4 milhão de meninas no Afeganistão foram intencionalmente impedidas de ter acesso à escola secundária desde 2021. Organizações internacionais como a UNESCO e a ONU alertam para o impacto devastador dessa proibição no futuro de gerações inteiras.</p>
+
+            <blockquote class="highlight-quote">
+                "Privar as mulheres da educação não é apenas uma violação de seus direitos fundamentais, mas um freio irreversível para o desenvolvimento econômico e social do Afeganistão."
+            </blockquote>
+
+            <p>Além da educação, as mulheres foram impedidas de trabalhar na maioria dos setores, incluindo em organizações não governamentais (ONGs) e na própria ONU dentro do país. Isso impacta diretamente a distribuição de ajuda humanitária em uma nação que enfrenta uma das piores crises de fome do mundo.</p>
+
+            <!-- GALERIA EM GRID -->
+            <div class="grid-gallery">
+                <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80" alt="Livros e educação">
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Sala de aula vazia">
             </div>
-        </section>
+            <div class="image-caption">A interrupção dos estudos afeta milhões de jovens e ameaça o futuro do país.</div>
+        </article>
 
-        <section id="restricoes" class="section bg-alt fade-in">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Restrições Atuais e o "Apartheid de Gênero"</h2>
-                    <p>As leis severas que baniram as mulheres da vida pública e privada.</p>
-                </div>
+        <!-- SEÇÃO 3 -->
+        <article class="section">
+            <h2>A Resistência e o Futuro</h2>
+            <p>Apesar do cenário de repressão e dos riscos reais de prisões e violência, mulheres afegãs continuam a resistir. Manifestações de rua, a criação de escolas clandestinas secretas na internet e em casas de família, e a transmissão de denúncias para a comunidade internacional são formas pelas quais elas recusam o silenciamento.</p>
 
-                <div class="cards-grid">
-                    <article class="card">
-                        <div class="card-icon">🎓</div>
-                        <h3>Proibição da Educação</h3>
-                        <p>Meninas acima do 6º ano estão proibidas de frequentar escolas. Universidades foram totalmente fechadas para o público feminino, interrompendo o sonho de gerações de médicas, professoras e engenheiras.</p>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-icon">💼</div>
-                        <h3>Exclusão do Trabalho</h3>
-                        <p>Mulheres foram impedidas de trabalhar na maioria dos setores governamentais e em ONGs internacionais, privando famílias do seu sustento e paralisando a ajuda humanitária vital.</p>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-icon">🗣️</div>
-                        <h3>Silenciamento e Liberdade</h3>
-                        <p>Novas diretrizes proíbem até mesmo que vozes femininas sejam ouvidas em público. A liberdade de ir e vir é severamente restringida, exigindo a presença de um acompanhante masculino (Mahram).</p>
-                    </article>
-                </div>
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80" alt="Mulher expressando liderança">
+                <div class="image-caption">Ativistas afegãs continuam pedindo apoio internacional para a garantia de direitos humanos fundamentais.</div>
             </div>
-        </section>
 
-        <section id="resistencia" class="section fade-in">
-            <div class="container">
-                <div class="section-header">
-                    <h2>A Resistência Feminina</h2>
-                    <p>Mesmo sob risco de vida, a voz das mulheres afegãs recusa-se a ser apagada.</p>
-                </div>
-
-                <div class="grid grid-2 align-center">
-                    <div class="media-container">
-                        <div class="image-card">
-                            <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=800&q=80" alt="Desenho/Ilustração conceitual com mãos dadas em apoio, simbolizando a união e solidariedade da resistência feminina." loading="lazy">
-                            <span class="caption">Resistência: Coragem e solidariedade que ultrapassam fronteiras.</span>
-                        </div>
-                    </div>
-                    <div class="content-text">
-                        <h3>Escolas Clandestinas e Educação Digital</h3>
-                        <p>Apesar dos perigos extremos, professoras ativistas operam <strong>escolas subterrâneas e clandestinas</strong> em suas próprias casas, ensinando secretamente milhares de jovens garotas a ler, escrever e pensar criticamente.</p>
-                        
-                        <h3>Protestos de Rua e Poesia</h3>
-                        <p>Manifestantes ativistas ocuparam diversas vezes as ruas gritando por <em>"Pão, Trabalho e Liberdade"</em>. Além dos protestos, a arte, o jornalismo independente e a poesia tornaram-se ferramentas poderosas de denúncia internacional.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="como-ajudar" class="section bg-alt fade-in">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Como Ajudar e Agir</h2>
-                    <p>A solidariedade internacional é fundamental para manter a atenção pública e apoiar as organizações no terreno.</p>
-                </div>
-
-                <div class="action-box">
-                    <div class="action-card">
-                        <h3>1. Difunda a Informação</h3>
-                        <p>Compartilhe relatórios de organizações sérias sobre a situação no Afeganistão. Não deixe que o mundo se esqueça do que está acontecendo.</p>
-                    </div>
-
-                    <div class="action-card">
-                        <h3>2. Apoie Organizações Humanitárias</h3>
-                        <p>Contribua com entidades que oferecem educação remota, apoio psicológico e ajuda de emergência para famílias vulneráveis.</p>
-                        <div class="org-links">
-                            <a href="https://www.amnesty.org" target="_blank" rel="noopener noreferrer" class="btn btn-small">Anistia Internacional</a>
-                            <a href="https://www.unwomen.org" target="_blank" rel="noopener noreferrer" class="btn btn-small">ONU Mulheres</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <p>A comunidade internacional e grupos ativistas reforçam constantemente que nenhum reconhecimento diplomático deve ocorrer sem que os direitos básicos de metade da população afegã — o direito de aprender, trabalhar e ir e vir livremente — sejam plenamente restabelecidos.</p>
+        </article>
     </main>
 
-    <footer class="footer">
-        <div class="container footer-content">
-            <p>&copy; Página informativa e de conscientização sobre os Direitos Humanos das Mulheres no Afeganistão.</p>
-            <p class="subtle">Projetado com respeito e solidariedade à causa das mulheres afegãs.</p>
-        </div>
+    <!-- RODAPÉ -->
+    <footer>
+        <p>© 2026 Portal de Conscientização sobre Direitos Humanos. Conteúdo Informativo.</p>
     </footer>
 
-    <script src="script.js"></script>
-</body>
-</html>
-:root,
-[data-theme="light"] {
-    --bg-primary: #F8F9FA;
-    --bg-secondary: #FFFFFF;
-    --bg-accent: #EFEFEF;
-    
-    --text-primary: #1C242B;
-    --text-secondary: #4A5568;
-    --text-muted: #718096;
-
-    --brand-primary: #8B263E;
-    --brand-hover: #6B1D30;
-    --brand-light: #FDF2F4;
-
-    --border-color: #E2E8F0;
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-
-    --font-heading: 'Merriweather', serif;
-    --font-body: 'Plus Jakarta Sans', sans-serif;
-
-    --transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-[data-theme="dark"] {
-    --bg-primary: #0F1419;
-    --bg-secondary: #192129;
-    --bg-accent: #242E38;
-
-    --text-primary: #F0F4F8;
-    --text-secondary: #CBD5E0;
-    --text-muted: #A0AEC0;
-
-    --brand-primary: #E56B81;
-    --brand-hover: #F08C9E;
-    --brand-light: #2A181E;
-
-    --border-color: #2D3748;
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    font-size: 100%;
-}
-
-body {
-    font-family: var(--font-body);
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.7;
-    transition: var(--transition);
-}
-
-h1, h2, h3, h4 {
-    font-family: var(--font-heading);
-    color: var(--text-primary);
-    line-height: 1.3;
-}
-
-p {
-    color: var(--text-secondary);
-    margin-bottom: 1.25rem;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
-}
-
-ul {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.header {
-    position: sticky;
-    top: 0;
-    background-color: var(--bg-secondary);
-    border-bottom: 1px solid var(--border-color);
-    z-index: 1000;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-}
-
-.logo {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--brand-primary);
-}
-
-.nav-list {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.nav-list a {
-    font-weight: 500;
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    transition: color 0.2s ease;
-}
-
-.nav-list a:hover {
-    color: var(--brand-primary);
-}
-
-.btn-icon {
-    background: transparent;
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    color: var(--text-primary);
-    transition: var(--transition);
-}
-
-.btn-icon:hover {
-    background-color: var(--bg-accent);
-}
-
-[data-theme="light"] .icon-sun {
-    display: none;
-}
-
-[data-theme="light"] .icon-moon {
-    display: inline;
-}
-
-[data-theme="dark"] .icon-sun {
-    display: inline;
-}
-
-[data-theme="dark"] .icon-moon {
-    display: none;
-}
-
-.section {
-    padding: 5rem 0;
-}
-
-.bg-alt {
-    background-color: var(--bg-secondary);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    transition: var(--transition);
-}
-
-.section-header {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 3.5rem auto;
-}
-
-.section-header h2 {
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
-}
-
-.grid {
-    display: grid;
-    gap: 2.5rem;
-}
-
-.grid-2 {
-    grid-template-columns: 1fr;
-}
-
-@media (min-width: 768px) {
-    .grid-2 {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-.align-center {
-    align-items: center;
-}
-
-.hero {
-    padding: 6rem 0;
-    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-    text-align: center;
-    border-bottom: 1px solid var(--border-color);
-    transition: var(--transition);
-}
-
-.hero-content {
-    max-width: 800px;
-}
-
-.tag {
-    display: inline-block;
-    padding: 0.35rem 0.85rem;
-    background-color: var(--brand-light);
-    color: var(--brand-primary);
-    font-size: 0.85rem;
-    font-weight: 600;
-    border-radius: 50px;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1.25rem;
-}
-
-.hero p {
-    font-size: 1.15rem;
-    margin-bottom: 2rem;
-}
-
-.hero-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-block;
-    padding: 0.85rem 1.75rem;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
-}
-
-.btn-primary {
-    background-color: var(--brand-primary);
-    color: #FFFFFF !important;
-    border: 2px solid var(--brand-primary);
-}
-
-.btn-primary:hover {
-    background-color: var(--brand-hover);
-    border-color: var(--brand-hover);
-    transform: translateY(-2px);
-}
-
-.btn-outline {
-    border: 2px solid var(--border-color);
-    color: var(--text-primary);
-    background-color: transparent;
-}
-
-.btn-outline:hover {
-    border-color: var(--brand-primary);
-    color: var(--brand-primary);
-}
-
-.btn-small {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-    background-color: var(--bg-accent);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-}
-
-.btn-small:hover {
-    background-color: var(--brand-primary);
-    color: #FFFFFF !important;
-    border-color: var(--brand-primary);
-}
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.card {
-    background-color: var(--bg-primary);
-    padding: 2rem;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    transition: var(--transition), transform 0.2s ease;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-}
-
-.card-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-}
-
-.image-card {
-    overflow: hidden;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    background-color: var(--bg-secondary);
-    transition: var(--transition);
-}
-
-.image-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.image-card:hover img {
-    transform: scale(1.03);
-}
-
-.caption {
-    display: block;
-    padding: 0.75rem 1rem;
-    font-size: 0.825rem;
-    color: var(--text-muted);
-    text-align: center;
-}
-
-.action-box {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-}
-
-@media (min-width: 768px) {
-    .action-box {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-.action-card {
-    background-color: var(--bg-primary);
-    padding: 2.5rem;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    transition: var(--transition);
-}
-
-.org-links {
-    display: flex;
-    gap: 0.75rem;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.footer {
-    background-color: var(--bg-secondary);
-    border-top: 1px solid var(--border-color);
-    padding: 3rem 0;
-    text-align: center;
-    font-size: 0.9rem;
-    transition: var(--transition);
-}
-
-.footer .subtle {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    margin-top: 0.5rem;
-}
-
-.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.js-enabled .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.js-enabled .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@media (max-width: 600px) {
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-}
-document.addEventListener('DOMContentLoaded', () => {
-    document.body.classList.add('js-enabled');
-
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const htmlElement = document.documentElement;
-
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme) {
-        htmlElement.setAttribute('data-theme', savedTheme);
-    } else if (systemPrefersDark) {
-        htmlElement.setAttribute('data-theme', 'dark');
-    }
-
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // --- 1. LÓGICA DO TEMA CLARO / ESCURO ---
+        const themeBtn = document.getElementById('themeBtn');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+
+        // Verificar preferência salva no LocalStorage ou usar tema claro como padrão
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeUI(savedTheme);
+
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-            htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme); // Salva a preferência
+            updateThemeUI(newTheme);
         });
-    }
 
-    const fadeElements = document.querySelectorAll('.fade-in');
-
-    if ('IntersectionObserver' in window) {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const scrollObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        fadeElements.forEach(element => {
-            scrollObserver.observe(element);
-        });
-    } else {
-        fadeElements.forEach(element => {
-            element.classList.add('visible');
-        });
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+        function updateThemeUI(theme) {
+            if (theme === 'dark') {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Modo Claro';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Modo Escuro';
             }
+        }
+
+        // --- 2. LÓGICA DO BOTÃO DE CURTIDA ---
+        const likeBtn = document.getElementById('likeBtn');
+        const likeCountSpan = document.getElementById('likeCount');
+        const likeTextSpan = document.getElementById('likeText');
+
+        let isLiked = false;
+        let likesCount = 124; // Valor inicial
+
+        likeBtn.addEventListener('click', () => {
+            isLiked = !isLiked;
+
+            if (isLiked) {
+                likesCount++;
+                likeBtn.classList.add('liked');
+                likeTextSpan.textContent = 'Curtido';
+            } else {
+                likesCount--;
+                likeBtn.classList.remove('liked');
+                likeTextSpan.textContent = 'Curtir';
+            }
+
+            likeCountSpan.textContent = likesCount;
         });
-    });
-});
+    </script>
+</body>
+</html>
